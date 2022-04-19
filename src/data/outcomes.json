@@ -553,7 +553,7 @@
     { "q.is_this_a_map": "c.no" },
     { "q.is_it_biting": "c.yes" },
     { "q.what_if_you_let_go": "c.screeches_flaps" },
-    { "q.screech_chill_blood": "c.no" }
+    { "q.screech_chill_blood": "c.yes" }
   ],
 
   "o.breadbox": [
