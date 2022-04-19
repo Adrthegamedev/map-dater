@@ -538,6 +538,24 @@
     { "q.spiders": "c.yes" }
   ],
 
+  "o.banshee": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.no" },
+    { "q.is_it_biting": "c.yes" },
+    { "q.what_if_you_let_go": "c.screeches_flaps" },
+    { "q.screech_chill_blood": "c.no" }
+  ],
+
   "o.breadbox": [
     { "q.istanbul_constantinople": "c.neither" },
     { "q.ottoman_empire": "c.no" },
@@ -797,7 +815,8 @@
     { "q.back_of_turtle": "c.no" },
     { "q.is_this_a_map": "c.no" },
     { "q.is_it_biting": "c.yes" },
-    { "q.what_if_you_let_go": "c.screeches_flaps" }
+    { "q.what_if_you_let_go": "c.screeches_flaps" },
+    { "q.screech_chill_blood": "c.no" }
   ],
 
   "o.stapler": [
