@@ -1,457 +1,855 @@
-[
-  {
-    "name": "q.istanbul_constantinople",
-    "choices": ["c.constantinople", "c.istanbul", "c.neither"],
-    "requirements": {}
-  },
-
-  {
-    "name": "q.ottoman_empire",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.istanbul_constantinople": "c.neither" }
-  },
-
-  {
-    "name": "q.soviet_union_2",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.istanbul_constantinople": "c.istanbul" }
-  },
-
-  {
-    "name": "q.canada_alaska_tokyo",
-    "choices": ["c.yes", "c.no"],
-    "requirements": {
-      "q.istanbul_constantinople": "c.constantinople",
-      "q.ottoman_empire": "c.yes"
-    }
-  },
-
-  {
-    "name": "q.holy_roman_empire",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.canada_alaska_tokyo": "c.no" }
-  },
-
-  {
-    "name": "q.united_states",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.holy_roman_empire": "c.no" }
-  },
-
-  {
-    "name": "q.texas",
-    "choices": ["c.part_of_mexico", "c.independant", "c.part_of_us"],
-    "requirements": { "q.united_states": "c.yes" }
-  },
-
-  {
-    "name": "q.florida",
-    "choices": ["c.part_of_spain", "c.part_of_us"],
-    "requirements": { "q.texas": "c.part_of_mexico" }
-  },
-
-  {
-    "name": "q.paraguay",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.florida": "c.part_of_spain" }
-  },
-
-  {
-    "name": "q.venezuela_equador",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.florida": "c.part_of_us" }
-  },
-
-  {
-    "name": "q.russia_sea_japan",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.texas": "c.part_of_us" }
-  },
-
-  {
-    "name": "q.us_southern_border",
-    "choices": ["c.weird", "c.normal"],
-    "requirements": { "q.russia_sea_japan": "c.no" }
-  },
-
-  {
-    "name": "q.south_africa",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.canada_alaska_tokyo": "c.yes" }
-  },
-
-  {
-    "name": "q.rhodesia",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.south_africa": "c.no" }
-  },
-
-  {
-    "name": "q.bolivia_landblocked",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.rhodesia": "c.no" }
-  },
-
-  {
-    "name": "q.buda_pest_budapest",
-    "choices": ["c.buda_pest", "c.budapest"],
-    "requirements": { "q.bolivia_landblocked": "c.no" }
-  },
-
-  {
-    "name": "q.norway_in_sweden",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.rhodesia": "c.yes" }
-  },
-
-  {
-    "name": "q.austria_hungary",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.south_africa": "c.yes" }
-  },
-
-  {
-    "name": "q.albania",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.austria_hungary": "c.yes" }
-  },
-
-  {
-    "name": "q.leningrad",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.austria_hungary": "c.no" }
-  },
-
-  {
-    "name": "q.soviet_union_1",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.ottoman_empire": "c.no" }
-  },
-
-  {
-    "name": "q.zaire",
-    "choices": ["c.yes", "c.no"],
-    "requirements": {
-      "q.soviet_union_2": "c.no",
-      "q.north_korea": "c.yes"
-    }
-  },
-
-  {
-    "name": "q.serbia_montenegro",
-    "choices": ["c.one_country", "c.two_countries"],
-    "requirements": { "q.zaire": "c.no" }
-  },
-
-  {
-    "name": "q.east_timor",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.serbia_montenegro": "c.one_country" }
-  },
-
-  {
-    "name": "q.how_many_sudan",
-    "choices": ["c.one", "c.two"],
-    "requirements": { "q.serbia_montenegro": "c.two_countries" }
-  },
-
-  {
-    "name": "q.crimea_disputed",
-    "choices": ["c.one", "c.two"],
-    "requirements": { "q.how_many_sudan": "c.two" }
-  },
-
-  {
-    "name": "q.colorado",
-    "choices": ["c.colorado", "c.danger_zone"],
-    "requirements": { "q.crimea_disputed": "c.yes" }
-  },
-
-  {
-    "name": "q.spiders",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.colorado": "c.danger_zone" }
-  },
-
-  {
-    "name": "q.west_africa",
-    "choices": ["c.yes", "c.no"],
-    "requirements": {
-      "q.saudi_arabia": "c.yes",
-      "q.soviet_union_2" : "c.yes"
-    }
-  },
-
-  {
-    "name": "q.how_many_vietnam",
-    "choices": ["c.one", "c.two"],
-    "requirements": { "q.west_africa" : "c.no" }
-  },
-
-  {
-    "name": "q.bangladesh",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.how_many_vietnam" : "c.two" }
-  },
-
-  {
-    "name": "q.jimmy_carter",
-    "choices": ["c.swimming_rabbit", "c.fine"],
-    "requirements": { "q.how_many_vietnam" : "c.one" }
-  },
-
-  {
-    "name": "q.sinai",
-    "choices": ["c.israel", "c.mostly_israel", "c.mostly_egypt", "c.egypt"],
-    "requirements": { "q.jimmy_carter" : "c.fine" }
-  },
-
-  {
-    "name": "q.capital_micronesia",
-    "choices": ["c.kolonia", "c.palikir"],
-    "requirements": { "q.sinai" : "c.egypt" }
-  },
-
-  {
-    "name": "q.upper_volta_burkina_faso",
-    "choices": ["c.upper_volta", "c.burkina_faso"],
-    "requirements": { "q.capital_micronesia" : "c.kolonia" }
-  },
-
-  {
-    "name": "q.sum_yemen_germany",
-    "choices": ["c.four", "c.three", "c.two"],
-    "requirements": { "q.capital_micronesia" : "c.palikir" }
-  },
-
-  {
-    "name": "q.south_lake_victoria",
-    "choices": ["c.british", "c.tanganyika", "c.tanzania"],
-    "requirements": { "q.bangladesh" : "c.no" }
-  },
-
-  {
-    "name": "q.town_albuquerque_el_paso",
-    "choices": ["c.hot_springs", "c.truth_or_consequences"],
-    "requirements": { "q.south_lake_victoria" : "c.british" }
-  },
-
-  {
-    "name": "q.pakistan",
-    "choices": ["c.yes", "c.no"],
-    "requirements": {
-      "q.west_africa" : "c.yes",
-      "q.kingdom_of_norway": "c.yes"
-    }
-  },
-
-  {
-    "name": "q.how_many_germany",
-    "choices": ["c.one", "c.one_huge", "c.two"],
-    "requirements": { "q.pakistan" : "c.no" }
-  },
-
-  {
-    "name": "q.persia_iran",
-    "choices": ["c.persia", "c.iran"],
-    "requirements": { "q.how_many_germany" : "c.one" }
-  },
-
-  {
-    "name": "q.cambodia",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.pakistan" : "c.yes" }
-  },
-
-  {
-    "name": "q.eritrea",
-    "choices": ["c.part_of_italy", "c.part_of_ethiopia"],
-    "requirements": { "q.cambodia" : "c.no" }
-  },
-
-  {
-    "name": "q.canada",
-    "choices": ["c.missing_a_piece", "c.fine"],
-    "requirements": { "q.eritrea" : "c.part_of_italy" }
-  },
-
-  {
-    "name": "q.united_arab_republic",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.cambodia" : "c.yes" }
-  },
-
-  {
-    "name": "q.saudi_arabia",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.soviet_union_1": "c.yes" }
-  },
-
-  {
-    "name": "q.aral_sea_missing",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.lake_chad_missing": "c.yes" }
-  },
-
-  {
-    "name": "q.north_korea",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.soviet_union_1": "c.no" }
-  },
-
-  {
-    "name": "q.saint_trimbles_island",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.north_korea": "c.no" }
-  },
-
-  {
-    "name": "q.kingdom_of_norway",
-    "choices": ["c.what", "c.yes", "c.not_yet"],
-    "requirements": { "q.saint_trimbles_island": "c.no" }
-  },
-
-  {
-    "name": "q.familiar_continents",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.kingdom_of_norway": "c.what" }
-  },
-
-  {
-    "name": "q.sirion_anduin",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.familiar_continents": "c.no" }
-  },
-
-  {
-    "name": "q.mordor",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.sirion_anduin": "c.yes" }
-  },
-
-  {
-    "name": "q.beleriand",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.mordor": "c.no" }
-  },
-
-  {
-    "name": "q.numenor",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.mordor": "c.yes" }
-  },
-
-  {
-    "name": "q.east_misty_mountains",
-    "choices": ["c.greenwood_the_great", "c.mirkwood", "c.wood_of_greenleaves"],
-    "requirements": { "q.numenor": "c.no" }
-  },
-
-  {
-    "name": "q.cair_paravel",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.sirion_anduin": "c.no" }
-  },
-
-  {
-    "name": "q.calormen",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.cair_paravel": "c.yes" }
-  },
-
-  {
-    "name": "q.weird_recursive_heaven",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.calormen": "c.yes" }
-  },
-
-  {
-    "name": "q.lotta_islands",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.calormen": "c.no" }
-  },
-
-  {
-    "name": "q.beruna",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.lotta_islands": "c.no" }
-  },
-
-  {
-    "name": "q.mossflower",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.cair_paravel": "c.no" }
-  },
-
-  {
-    "name": "q.back_of_turtle",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.mossflower": "c.no" }
-  },
-
-  {
-    "name": "q.is_this_a_map",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.back_of_turtle": "c.no" }
-  },
-
-  {
-    "name": "q.diy",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.is_this_a_map": "c.yes" }
-  },
-
-  {
-    "name": "q.is_it_biting",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.is_this_a_map": "c.no" }
-  },
-
-  {
-    "name": "q.is_it_larger_than_breadbox",
-    "choices": ["c.yes", "c.no", "c.about_the_same"],
-    "requirements": { "q.is_it_biting": "c.no" }
-  },
-
-  {
-    "name": "q.what_if_you_let_go",
-    "choices": ["c.hisses_runs_away", "c.screeches_flaps"],
-    "requirements": { "q.is_it_biting": "c.yes" }
-  },
-
-  {
-    "name": "q.very_nice",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.back_of_turtle": "c.no" }
-  },
-
-  {
-    "name": "q.physical_map_satellite_photo",
-    "choices": ["c.yes"],
-    "requirements": { "q.familiar_continents": "c.yes" }
-  },
-
-  {
-    "name": "q.lake_chad_missing",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.physical_map_satellite_photo": "c.yes" }
-  },
-
-  {
-    "name": "q.american_prairies",
-    "choices": ["c.indiana", "c.mississippi", "c.nebraska", "c.what_prairies"],
-    "requirements": { "q.lake_chad_missing": "c.no" }
-  },
-
-  {
-    "name": "q.lake_southern_carolina",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.american_prairies": "c.nebraska" }
-  },
-
-  {
-    "name": "q.lake_ghana",
-    "choices": ["c.yes", "c.no"],
-    "requirements": { "q.american_prairies": "c.what_prairies" }
-  }
-]
+{
+  "o.1805": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.yes" }
+  ],
+
+  "o.1806-10": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.part_of_mexico" },
+    { "q.florida": "c.part_of_spain" },
+    { "q.paraguay": "c.no" }
+  ],
+
+  "o.1811-17": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.part_of_mexico" },
+    { "q.florida": "c.part_of_spain" },
+    { "q.paraguay": "c.yes" }
+  ],
+
+  "o.1818-29": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.part_of_mexico" },
+    { "q.florida": "c.part_of_us" },
+    { "q.venezuela_equador": "c.no" }
+  ],
+
+  "o.1830-33": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.part_of_mexico" },
+    { "q.florida": "c.part_of_us" },
+    { "q.venezuela_equador": "c.yes" }
+  ],
+
+  "o.1830s-80s": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.yes" },
+    { "q.physical_map_satellite_photo": "c.yes" },
+    { "q.lake_chad_missing": "c.no" },
+    { "q.american_prairies": "c.mississippi" }
+  ],
+
+  "o.1860s-1900s": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.yes" },
+    { "q.physical_map_satellite_photo": "c.yes" },
+    { "q.lake_chad_missing": "c.no" },
+    { "q.american_prairies": "c.nebraska" },
+    { "q.lake_southern_carolina": "c.no" }
+  ],
+
+  "o.1834-45": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.independant" }
+  ],
+
+  "o.1846-53": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.part_of_us" },
+    { "q.russia_sea_japan": "c.no" },
+    { "q.us_southern_border": "c.weird" }
+  ],
+
+  "o.1854-56": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.part_of_us" },
+    { "q.russia_sea_japan": "c.no" },
+    { "q.us_southern_border": "c.normal" }
+  ],
+
+  "o.1858-67": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.yes" },
+    { "q.texas": "c.part_of_us" },
+    { "q.russia_sea_japan": "c.yes" }
+  ],
+
+  "o.1862-72": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.no" },
+    { "q.rhodesia": "c.no" },
+    { "q.bolivia_landblocked": "c.no" },
+    { "q.buda_pest_budapest": "c.buda_pest" }
+  ],
+
+  "o.1873-83": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.no" },
+    { "q.rhodesia": "c.no" },
+    { "q.bolivia_landblocked": "c.no" },
+    { "q.buda_pest_budapest": "c.budapest" }
+  ],
+
+  "o.1884-95": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.no" },
+    { "q.rhodesia": "c.no" },
+    { "q.bolivia_landblocked": "c.yes" }
+  ],
+
+  "o.1896-1905": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.no" },
+    { "q.rhodesia": "c.yes" },
+    { "q.norway_in_sweden": "c.yes" }
+  ],
+
+  "o.1906-09": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.no" },
+    { "q.rhodesia": "c.yes" },
+    { "q.norway_in_sweden": "c.no" }
+  ],
+
+  "o.1910s": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.yes" },
+    { "q.physical_map_satellite_photo": "c.yes" },
+    { "q.lake_chad_missing": "c.no" },
+    { "q.american_prairies": "c.nebraska" },
+    { "q.lake_southern_carolina": "c.yes" }
+  ],
+
+  "o.1910-12": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.yes" },
+    { "q.austria_hungary": "c.yes" },
+    { "q.albania": "c.no" }
+  ],
+
+  "o.1913-18": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.yes" },
+    { "q.austria_hungary": "c.yes" },
+    { "q.albania": "c.yes" }
+  ],
+
+  "o.1919-23": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.yes" },
+    { "q.austria_hungary": "c.no" },
+    { "q.leningrad": "c.no" }
+  ],
+
+  "o.1920s-50s": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.yes" },
+    { "q.physical_map_satellite_photo": "c.yes" },
+    { "q.lake_chad_missing": "c.no" },
+    { "q.american_prairies": "c.what_prairies" },
+    { "q.lake_ghana": "c.no" }
+  ],
+
+  "o.1922-32": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.no" }
+  ],
+
+  "o.1924-29": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.yes" },
+    { "q.south_africa": "c.yes" },
+    { "q.austria_hungary": "c.no" },
+    { "q.leningrad": "c.yes" }
+  ],
+
+  "o.1930-34": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.no" },
+    { "q.how_many_germany": "c.one" },
+    { "q.persia_iran": "c.persia" }
+  ],
+
+  "o.1935-40": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.no" },
+    { "q.how_many_germany": "c.one" },
+    { "q.persia_iran": "c.iran" }
+  ],
+
+  "o.1941-45": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.no" },
+    { "q.how_many_germany": "c.one_huge" }
+  ],
+
+  "o.1946-47": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.no" },
+    { "q.how_many_germany": "c.two" }
+  ],
+
+  "o.1948": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.yes" },
+    { "q.cambodia": "c.no" },
+    { "q.eritrea": "c.part_of_italy" },
+    { "q.canada": "c.missing_a_piece" }
+  ],
+
+  "o.1948-49": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.two" },
+    { "q.bangladesh": "c.no" },
+    { "q.south_lake_victoria": "c.british" },
+    { "q.town_albuquerque_el_paso": "c.hot_springs" }
+  ],
+
+  "o.1949-52": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.yes" },
+    { "q.cambodia": "c.no" },
+    { "q.eritrea": "c.part_of_italy" },
+    { "q.canada": "c.fine" }
+  ],
+
+  "o.1950-52": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.two" },
+    { "q.bangladesh": "c.no" },
+    { "q.south_lake_victoria": "c.british" },
+    { "q.town_albuquerque_el_paso": "c.truth_or_consequences" }
+  ],
+
+  "o.1952-53": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.yes" },
+    { "q.cambodia": "c.no" },
+    { "q.eritrea": "c.part_of_ethiopia" }
+  ],
+
+  "o.1954-57": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.yes" },
+    { "q.cambodia": "c.yes" },
+    { "q.united_arab_republic": "c.no" }
+  ],
+
+  "o.1958-60": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.yes" },
+    { "q.saudi_arabia": "c.yes" },
+    { "q.west_africa": "c.yes" },
+    { "q.pakistan": "c.yes" },
+    { "q.cambodia": "c.yes" },
+    { "q.united_arab_republic": "c.yes" }
+  ],
+
+  "o.1960s-70s": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.yes" },
+    { "q.physical_map_satellite_photo": "c.yes" },
+    { "q.lake_chad_missing": "c.no" },
+    { "q.american_prairies": "c.what_prairies" },
+    { "q.lake_ghana": "c.yes" }
+  ],
+
+  "o.1961-64": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.two" },
+    { "q.bangladesh": "c.no" },
+    { "q.south_lake_victoria": "c.tanganyika" }
+  ],
+
+  "o.1965-71": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.two" },
+    { "q.bangladesh": "c.no" },
+    { "q.south_lake_victoria": "c.tanzania" }
+  ],
+
+  "o.1972-75": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.two" },
+    { "q.bangladesh": "c.yes" }
+  ],
+
+  "o.1976-79": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.israel" }
+  ],
+
+  "o.20-04-1979": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.swimming_rabbit" }
+  ],
+
+  "o.1980": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.mostly_israel" }
+  ],
+
+  "o.1981": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.mostly_egypt" }
+  ],
+
+  "o.1982-84": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.egypt" },
+    { "q.capital_micronesia": "c.kolonia" },
+    { "q.upper_volta_burkina_faso": "c.upper_volta" }
+  ],
+
+  "o.1985-88": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.egypt" },
+    { "q.capital_micronesia": "c.kolonia" },
+    { "q.upper_volta_burkina_faso": "c.burkina_faso" }
+  ],
+
+  "o.1989-90": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.egypt" },
+    { "q.capital_micronesia": "c.palikir" },
+    { "q.sum_yemen_germany": "c.four" }
+  ],
+
+  "o.1990": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.egypt" },
+    { "q.capital_micronesia": "c.palikir" },
+    { "q.sum_yemen_germany": "c.three" }
+  ],
+
+  "o.1990-91": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.yes" },
+    { "q.west_africa": "c.no" },
+    { "q.how_many_vietnam": "c.one" },
+    { "q.jimmy_carter": "c.fine" },
+    { "q.sinai": "c.egypt" },
+    { "q.capital_micronesia": "c.palikir" },
+    { "q.sum_yemen_germany": "c.two" }
+  ],
+
+  "o.1992-96": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.yes" }
+  ],
+
+  "o.1997-2001": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.no" },
+    { "q.serbia_montenegro": "c.one_country" },
+    { "q.east_timor": "c.no" }
+  ],
+
+  "o.2002-06": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.no" },
+    { "q.serbia_montenegro": "c.one_country" },
+    { "q.east_timor": "c.yes" }
+  ],
+
+  "o.2007-11": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.no" },
+    { "q.serbia_montenegro": "c.two_countries" },
+    { "q.how_many_sudan": "c.one" }
+  ],
+
+  "o.2012-13": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.no" },
+    { "q.serbia_montenegro": "c.two_countries" },
+    { "q.how_many_sudan": "c.two" },
+    { "q.crimea_disputed": "c.no" }
+  ],
+
+  "o.2014-21": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.no" },
+    { "q.serbia_montenegro": "c.two_countries" },
+    { "q.how_many_sudan": "c.two" },
+    { "q.crimea_disputed": "c.yes" },
+    { "q.colorado": "c.colorado" }
+  ],
+
+  "o.2022": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.no" },
+    { "q.serbia_montenegro": "c.two_countries" },
+    { "q.how_many_sudan": "c.two" },
+    { "q.crimea_disputed": "c.yes" },
+    { "q.colorado": "c.danger_zone" },
+    { "q.spiders": "c.no" }
+  ],
+
+  "o.2023": [
+    { "q.istanbul_constantinople": "c.istanbul" },
+    { "q.soviet_union_2": "c.no" },
+    { "q.zaire": "c.no" },
+    { "q.serbia_montenegro": "c.two_countries" },
+    { "q.how_many_sudan": "c.two" },
+    { "q.crimea_disputed": "c.yes" },
+    { "q.colorado": "c.danger_zone" },
+    { "q.spiders": "c.yes" }
+  ],
+
+  "o.banshee": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.no" },
+    { "q.is_it_biting": "c.yes" },
+    { "q.what_if_you_let_go": "c.screeches_flaps" },
+    { "q.screech_chill_blood": "c.no" }
+  ],
+
+  "o.breadbox": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.no" },
+    { "q.is_it_biting": "c.no" },
+    { "q.is_it_larger_than_breadbox": "c.about_the_same" }
+  ],
+
+  "o.cat": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.no" },
+    { "q.is_it_biting": "c.yes" },
+    { "q.what_if_you_let_go": "c.hisses_runs_away" }
+  ],
+
+  "o.discworld": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.yes" }
+  ],
+
+  "o.english_map": [
+    { "q.istanbul_constantinople": "c.constantinople" },
+    { "q.canada_alaska_tokyo": "c.no" },
+    { "q.holy_roman_empire": "c.no" },
+    { "q.united_states": "c.no" }
+  ],
+
+  "o.it_is_very_nice": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.yes" },
+    { "q.diy": "c.yes" }
+  ],
+
+  "o.lotr_early_second_age": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.yes" },
+    { "q.mordor": "c.no" },
+    { "q.beleriand": "c.no" }
+  ],
+
+  "o.lotr_early_third_age": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.yes" },
+    { "q.mordor": "c.yes" },
+    { "q.numenor": "c.no" },
+    { "q.east_misty_mountains": "c.greenwood_the_great" }
+  ],
+
+  "o.lotr_first_age": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.yes" },
+    { "q.mordor": "c.no" },
+    { "q.beleriand": "c.yes" }
+  ],
+
+  "o.lotr_fourth_age": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.yes" },
+    { "q.mordor": "c.yes" },
+    { "q.numenor": "c.no" },
+    { "q.east_misty_mountains": "c.wood_of_greenleaves" }
+  ],
+
+  "o.lotr_late_second_age": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.yes" },
+    { "q.mordor": "c.yes" },
+    { "q.numenor": "c.yes" }
+  ],
+
+  "o.lotr_late_third_age": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.yes" },
+    { "q.mordor": "c.yes" },
+    { "q.numenor": "c.no" },
+    { "q.east_misty_mountains": "c.mirkwood" }
+  ],
+
+  "o.made_up": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.yes" }
+  ],
+
+  "o.narnia_down_treader": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.yes" },
+    { "q.calormen": "c.no" },
+    { "q.lotta_islands": "c.yes" }
+  ],
+
+  "o.narnia_last_battle": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.yes" },
+    { "q.calormen": "c.yes" },
+    { "q.weird_recursive_heaven": "c.yes" }
+  ],
+
+  "o.narnia_lion_witch_wardrobe": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.yes" },
+    { "q.calormen": "c.no" },
+    { "q.lotta_islands": "c.no" },
+    { "q.beruna": "c.ford" }
+  ],
+
+  "o.narnia_prince_caspian": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.yes" },
+    { "q.calormen": "c.no" },
+    { "q.lotta_islands": "c.no" },
+    { "q.beruna": "c.bridge" }
+  ],
+
+  "o.narnia_random_later_books": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.yes" },
+    { "q.calormen": "c.yes" },
+    { "q.weird_recursive_heaven": "c.no" }
+  ],
+
+  "o.redwall": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.yes" }
+  ],
+
+  "o.seagull": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.no" },
+    { "q.is_it_biting": "c.yes" },
+    { "q.what_if_you_let_go": "c.screeches_flaps" },
+    { "q.screech_chill_blood": "c.no" }
+  ],
+
+  "o.stapler": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.no" },
+    { "q.is_it_biting": "c.no" },
+    { "q.is_it_larger_than_breadbox": "c.no" }
+  ],
+
+  "o.tuba": [
+    { "q.istanbul_constantinople": "c.neither" },
+    { "q.ottoman_empire": "c.no" },
+    { "q.soviet_union_1": "c.no" },
+    { "q.north_korea": "c.no" },
+    { "q.saint_trimbles_island": "c.no" },
+    { "q.kingdom_of_norway": "c.what" },
+    { "q.familiar_continents": "c.no" },
+    { "q.sirion_anduin": "c.no" },
+    { "q.cair_paravel": "c.no" },
+    { "q.mossflower": "c.no" },
+    { "q.back_of_turtle": "c.no" },
+    { "q.is_this_a_map": "c.no" },
+    { "q.is_it_biting": "c.no" },
+    { "q.is_it_larger_than_breadbox": "c.yes" }
+  ]
+}
